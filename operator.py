@@ -1,13 +1,13 @@
 def add(x, y, position):
-    return position, (x + y) % 2
+    return position, x + y
 
 
 def subtract(x, y, position):
-    return position, (x - y) % 2
+    return position, x - y
 
 
-def interaction(information):
-    operator_slot, x_slot, y_slot, position_slot = information[:4]
+def interaction(information, interaction_list):
+    operator_slot, x_slot, y_slot, position_slot = interaction_list
 
     operator_number = information[operator_slot]
     if not operators:
