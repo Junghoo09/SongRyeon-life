@@ -7,10 +7,17 @@ def subtract(x, y, position):
 
 
 def interaction(information):
-    operator_number = information[0]
-    x = information[information[1]]
-    y = information[information[2]]
-    position = information[3]
+    operator_slot, x_slot, y_slot, position_slot = information[:4]
+
+    operator_number = information[operator_slot]
+    if not operators:
+        print("등록된 연산자가 없습니다.")
+        return
+    operator_number = operator_number % len(operators)
+
+    x = information[information[x_slot]]
+    y = information[information[y_slot]]
+    position = information[position_slot]
 
     operator = operators[operator_number]
     position, value = operator(x, y, position)
